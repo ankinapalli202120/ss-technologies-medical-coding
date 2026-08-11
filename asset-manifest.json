@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/ss-technologies-medical-coding/static/css/main.85b53094.css",
+    "main.js": "/ss-technologies-medical-coding/static/js/main.186f2538.js",
+    "static/js/453.1824b747.chunk.js": "/ss-technologies-medical-coding/static/js/453.1824b747.chunk.js",
+    "static/media/ss-logo.jpeg.jpeg": "/ss-technologies-medical-coding/static/media/ss-logo.jpeg.26575d61d592aabab63b.jpeg",
+    "index.html": "/ss-technologies-medical-coding/index.html",
+    "main.85b53094.css.map": "/ss-technologies-medical-coding/static/css/main.85b53094.css.map",
+    "main.186f2538.js.map": "/ss-technologies-medical-coding/static/js/main.186f2538.js.map",
+    "453.1824b747.chunk.js.map": "/ss-technologies-medical-coding/static/js/453.1824b747.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.85b53094.css",
+    "static/js/main.186f2538.js"
+  ]
+}
