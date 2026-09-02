@@ -1,5 +1,29 @@
+import { useEffect, useState } from "react";
+import { supabase } from "../supabaseClient";
+import "../styles.css";
+import "../css/styles.css";
+
 function Courses() {
-  return (
+  const [supabaseCourses, setSupabaseCourses] = useState([]);
+
+  useEffect(() => {
+    fetchCourses();
+  }, []);
+
+  const fetchCourses = async () => {
+    const { data, error } = await supabase
+      .from("courses")
+      .select("id, name, description");
+
+    if (error) {
+      console.error("Error loading courses:", error);
+      return;
+    }
+
+    setSupabaseCourses(data || []);
+  };
+
+   return (
     <section className="courses-page">
       <h1>Our Courses & Training</h1>
 
@@ -8,7 +32,24 @@ function Courses() {
         Revenue Cycle Management.
       </p>
 
+      
+
       <div className="course-grid">
+                {/* Supabase Courses */}
+
+        {supabaseCourses.map((course) => (
+          <div className="course-card" key={course.name}>
+            <div className="course-icon">🎓</div>
+
+            <h2>{course.name}</h2>
+
+            <div className="course-badge">
+              Professional Training
+            </div>
+
+            <p>{course.description}</p>
+          </div>
+        ))}
 
         {/* Certification Courses */}
 

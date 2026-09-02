@@ -1,38 +1,99 @@
+import { useState } from "react";
+import { supabase } from "../supabaseClient";
+import "../styles.css";
+
 function Contact() {
-  const handleSubmit = (e) => {
+  const [submitting, setSubmitting] = useState(false);
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const name = e.target.name.value;
-    const phone = e.target.phone.value;
-    const email = e.target.email.value;
-    const course = e.target.course.value;
-    const message = e.target.message.value;
+    if (submitting) return;
 
-    const whatsappMessage =
-      `Hello SS Technologies Medical Coding Institute,%0A%0A` +
-      `Name: ${name}%0A` +
-      `Phone: ${phone}%0A` +
-      `Email: ${email}%0A` +
-      `Course: ${course}%0A` +
-      `Message: ${message}`;
+    const form = e.target;
 
-    window.open(
-      `https://wa.me/918309751976?text=${whatsappMessage}`,
-      "_blank"
-    );
+    const name = form.name.value.trim();
+    const phone = form.phone.value.trim();
+    const email = form.email.value.trim();
+    const course = form.course.value;
+    const message = form.message.value.trim();
+
+    // Basic phone validation
+    const phonePattern = /^[0-9]{10}$/;
+
+    if (!phonePattern.test(phone)) {
+      setStatus("❌ Please enter a valid 10-digit phone number.");
+      return;
+    }
+
+    setSubmitting(true);
+    setStatus("");
+
+    try {
+      // Save enquiry to Supabase
+      const { error } = await supabase
+        .from("enquiries")
+        .insert([
+          {
+            name,
+            phone,
+            email,
+            course,
+            message,
+          },
+        ]);
+
+      if (error) {
+        console.error("Supabase error:", error);
+        setStatus("❌ Enquiry save కాలేదు. Please try again.");
+        setSubmitting(false);
+        return;
+      }
+
+      // WhatsApp message
+      const whatsappMessage = `Hello SARAVU Medical Coding & AI Creator,
+
+Name: ${name}
+Phone: ${phone}
+Email: ${email || "Not provided"}
+Course: ${course}
+Message: ${message || "No message"}`;
+
+      const whatsappURL = `https://wa.me/918309751976?text=${encodeURIComponent(
+        whatsappMessage
+      )}`;
+
+      setStatus(
+        "✅ Enquiry submitted successfully! Opening WhatsApp..."
+      );
+
+      window.open(whatsappURL, "_blank");
+
+      form.reset();
+    } catch (error) {
+      console.error("Unexpected error:", error);
+      setStatus("❌ Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
     <section className="contact-page">
 
+      {/* CONTACT HEADER */}
       <h1>Contact Us</h1>
 
-      <h2>SS Technologies Medical Coding Institute</h2>
+      <h2>SARAVU Medical Coding & AI Creator</h2>
 
       <p>📞 Phone: 8309751976</p>
+
       <p>📱 WhatsApp: 8309751976</p>
+
       <p>☎️ Office: 04035024143</p>
 
+      {/* ADDRESS */}
       <h2>📍 Our Address</h2>
 
       <p>
@@ -45,7 +106,9 @@ function Contact() {
         Hyderabad, Telangana - 500036, India
       </p>
 
+      {/* SOCIAL LINKS */}
       <div className="social-links">
+
         <h2>Connect With Us</h2>
 
         <a
@@ -71,9 +134,12 @@ function Contact() {
         >
           📸 Instagram
         </a>
+
       </div>
 
+      {/* GOOGLE MAPS */}
       <div className="map-section">
+
         <h2>📍 Find Us on Google Maps</h2>
 
         <a
@@ -83,8 +149,10 @@ function Contact() {
         >
           🗺️ Open Location in Google Maps
         </a>
+
       </div>
 
+      {/* ENQUIRY FORM */}
       <div className="enquiry-section">
 
         <h2>📝 Enquiry Form</h2>
@@ -101,7 +169,9 @@ function Contact() {
           <input
             type="tel"
             name="phone"
-            placeholder="Phone Number"
+            placeholder="10-Digit Phone Number"
+            maxLength="10"
+            inputMode="numeric"
             required
           />
 
@@ -111,7 +181,11 @@ function Contact() {
             placeholder="Email Address"
           />
 
-          <select name="course" defaultValue="" required>
+          <select
+            name="course"
+            defaultValue=""
+            required
+          >
             <option value="" disabled>
               Select Course
             </option>
@@ -138,8 +212,27 @@ function Contact() {
             rows="5"
           ></textarea>
 
-          <button type="submit">
-            💬 Send Enquiry on WhatsApp
+          {/* STATUS */}
+          {status && (
+            <p
+              style={{
+                marginTop: "12px",
+                marginBottom: "12px",
+                fontWeight: "600",
+              }}
+            >
+              {status}
+            </p>
+          )}
+
+          {/* SUBMIT */}
+          <button
+            type="submit"
+            disabled={submitting}
+          >
+            {submitting
+              ? "⏳ Sending..."
+              : "💬 Send Enquiry on WhatsApp"}
           </button>
 
         </form>

@@ -1,6 +1,6 @@
 function Complaints() {
   return (
-    <section className="courses-page">
+    <section className="complaints-page">
       <h1>Complaints & Support</h1>
 
       <p className="section-subtitle">

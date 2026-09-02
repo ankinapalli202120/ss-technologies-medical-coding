@@ -1,120 +1,144 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import React from "react";
+import "./css/styles.css";
 
-import Home from './pages/Home';
-import Courses from './pages/Courses';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import Forms from './pages/Forms';
-import Complaints from './pages/Complaints';
+import { Routes, Route, Link } from "react-router-dom";
 
-import './App.css';
-import logo from './ss-logo.jpeg.jpeg';
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import Courses from "./pages/Courses";
+import About from "./pages/About";
+import Forms from "./pages/Forms";
+import Complaints from "./pages/Complaints";
+import RecordClass from "./pages/RecordClass";
+import AdminEnquiries from "./pages/AdminEnquiries";
+import AdminLogin from "./pages/AdminLogin";
 
 function App() {
   return (
-    <BrowserRouter>
-      <header className="header">
+    <>
+      {/* NAVBAR */}
+      <header className="navbar">
 
-        <div className="brand">
-          <img
-  src={logo}
-  alt="SS Technologies Logo"
-  className="site-logo"
-/>
-
-          <div>
-            <h2>SS Technologies</h2>
-            <p>Medical Coding Institute</p>
-          </div>
+        <div className="logo">
+          <Link to="/ss-technologies-medical-coding/">
+            <img
+              src="/ss-technologies-medical-coding/saravu-logo.png"
+              alt="SARAVU Medical Coding & AI Creator"
+            />
+          </Link>
         </div>
 
         <nav>
-          <Link to="/">Home</Link>
-          <Link to="/courses">Courses</Link>
-          <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
-          <Link to="/forms">Forms</Link>
-          <Link to="/complaints">Complaints</Link>
+
+          <Link to="/ss-technologies-medical-coding/">
+            Home
+          </Link>
+
+          <Link to="/ss-technologies-medical-coding/courses">
+            Courses
+          </Link>
+
+          <Link to="/ss-technologies-medical-coding/about">
+            About
+          </Link>
+
+          <Link to="/ss-technologies-medical-coding/forms">
+            Forms
+          </Link>
+
+          <Link to="/ss-technologies-medical-coding/complaints">
+            Complaints
+          </Link>
+
+          <Link to="/ss-technologies-medical-coding/record-class">
+            Record Classes
+          </Link>
+
+          <Link to="/ss-technologies-medical-coding/contact">
+            Contact
+          </Link>
+
         </nav>
 
       </header>
 
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/forms" element={<Forms />} />
-          <Route path="/complaints" element={<Complaints />} />
-        </Routes>
-      </main>
+      {/* PAGES */}
+      <Routes>
 
-      <footer className="site-footer">
+        {/* ADMIN LOGIN */}
+        <Route
+          path="/ss-technologies-medical-coding/admin-login"
+          element={<AdminLogin />}
+        />
 
-  <div className="footer-content">
+        {/* ADMIN ENQUIRIES */}
+        <Route
+          path="/ss-technologies-medical-coding/admin-enquiries"
+          element={<AdminEnquiries />}
+        />
 
-    <div className="footer-brand">
-      <h3>SS Technologies</h3>
-      <p>Medical Coding Institute</p>
-      <p className="footer-tagline">
-        Learn • Practice • Get Certified
-      </p>
-    </div>
+        {/* HOME */}
+        <Route
+          path="/ss-technologies-medical-coding/"
+          element={<Home />}
+        />
 
-    <div className="footer-links">
-      <h4>Quick Links</h4>
+        {/* COURSES */}
+        <Route
+          path="/ss-technologies-medical-coding/courses"
+          element={<Courses />}
+        />
 
-      <Link to="/">Home</Link>
-      <Link to="/courses">Courses</Link>
-      <Link to="/about">About</Link>
-      <Link to="/contact">Contact</Link>
-      <Link to="/forms">Forms</Link>
-      <Link to="/complaints">Complaints</Link>
-    </div>
+        {/* ABOUT */}
+        <Route
+          path="/ss-technologies-medical-coding/about"
+          element={<About />}
+        />
 
-    <div className="footer-contact">
-      <h4>Contact Us</h4>
+        {/* FORMS */}
+        <Route
+          path="/ss-technologies-medical-coding/forms"
+          element={<Forms />}
+        />
 
-      <p>📞 8309751976</p>
-      <p>☎️ 04035024143</p>
+        {/* COMPLAINTS */}
+        <Route
+          path="/ss-technologies-medical-coding/complaints"
+          element={<Complaints />}
+        />
 
-      <a
-        href="https://wa.me/918309751976"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        💬 WhatsApp
-      </a>
+        {/* RECORD CLASSES */}
+        <Route
+          path="/ss-technologies-medical-coding/record-class"
+          element={<RecordClass />}
+        />
 
-      <a
-        href="https://www.facebook.com/saraswathi.ankinapalli9"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        📘 Facebook
-      </a>
+        {/* CONTACT */}
+        <Route
+          path="/ss-technologies-medical-coding/contact"
+          element={<Contact />}
+        />
 
-      <a
-        href="https://www.instagram.com/ankin_apalli/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        📸 Instagram
-      </a>
-    </div>
+              {/* CONTACT */}
+        <Route
+          path="/ss-technologies-medical-coding/contact"
+          element={<Contact />}
+        />
 
-  </div>
+        {/* ADMIN LOGIN */}
+        <Route
+          path="/ss-technologies-medical-coding/admin-login"
+          element={<AdminLogin />}
+        />
 
-  <div className="footer-bottom">
-    <p>
-      © 2026 SS Technologies Medical Coding Institute. All Rights Reserved.
-    </p>
-  </div>
+        {/* ADMIN ENQUIRIES */}
+        <Route
+          path="/ss-technologies-medical-coding/admin-enquiries"
+          element={<AdminEnquiries />}
+        />
 
-</footer>
-
-    </BrowserRouter>
+      </Routes>
+    </>
   );
 }
 
