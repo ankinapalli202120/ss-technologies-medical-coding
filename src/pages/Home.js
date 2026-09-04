@@ -33,15 +33,23 @@ function Home() {
           </Link>
 
           <a
-            href="https://wa.me/918309751976"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="whatsapp-button"
-          >
-            💬 Join Now
-          </a>
+  href="https://wa.me/918309751976"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="whatsapp-button"
+>
+  WhatsApp
+</a>
 
-        </div>
+<a
+  href="/ss-technologies-medical-coding/contact"
+  className="hero-button join"
+>
+  💬 Join Now
+</a>
+
+</div>
+        
 
         {/* FEATURES */}
         <div className="hero-features">
