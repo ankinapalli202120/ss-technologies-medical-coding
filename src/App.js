@@ -22,9 +22,9 @@ function App() {
         <div className="logo">
           <Link to="/ss-technologies-medical-coding/">
             <img
-              src="/ss-technologies-medical-coding/saravu-logo.png"
-              alt="SARAVU Medical Coding & AI Creator"
-            />
+  src="/saravu-logo.png"
+  alt="SARAVU Medical Coding & AI Creator"
+/>
           </Link>
         </div>
 
