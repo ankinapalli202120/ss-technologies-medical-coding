@@ -33,23 +33,22 @@ function Home() {
           </Link>
 
           <a
-  href="https://wa.me/918309751976"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="whatsapp-button"
->
-  WhatsApp
-</a>
+            href="https://wa.me/918309751976"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="whatsapp-button"
+          >
+            WhatsApp
+          </a>
 
-<a
-  href="/ss-technologies-medical-coding/contact"
-  className="hero-button join"
->
-  💬 Join Now
-</a>
+          <a
+            href="/ss-technologies-medical-coding/contact"
+            className="hero-button join"
+          >
+            💬 Join Now
+          </a>
 
-</div>
-        
+        </div>
 
         {/* FEATURES */}
         <div className="hero-features">
@@ -99,12 +98,21 @@ function Home() {
             </a>
 
             <a
-              href="https://www.facebook.com/share/saravumedicalcoingaicreator"
+              href="https://www.facebook.com/saravumedicalcoingaicreator"
               target="_blank"
               rel="noopener noreferrer"
               className="social-button facebook"
             >
-              📘 Follow on Facebook
+              📘 SARAVU Facebook Page
+            </a>
+
+            <a
+              href="https://www.facebook.com/saraswathi.ankinapalli9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-button facebook"
+            >
+              📘 My Facebook Profile
             </a>
 
             <a

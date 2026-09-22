@@ -12,6 +12,9 @@ import Complaints from "./pages/Complaints";
 import RecordClass from "./pages/RecordClass";
 import AdminEnquiries from "./pages/AdminEnquiries";
 import AdminLogin from "./pages/AdminLogin";
+import DigitalProducts from "./pages/DigitalProducts";
+import CustomerDetails from "./pages/CustomerDetails";
+import Payment from "./pages/Payment";
 
 function App() {
   return (
@@ -53,6 +56,9 @@ function App() {
           <Link to="/ss-technologies-medical-coding/record-class">
             Record Classes
           </Link>
+          <Link to="/ss-technologies-medical-coding/digital-products">
+  Digital Products
+</Link>
 
           <Link to="/ss-technologies-medical-coding/contact">
             Contact
@@ -124,6 +130,21 @@ function App() {
           path="/ss-technologies-medical-coding/contact"
           element={<Contact />}
         />
+        {/* DIGITAL PRODUCTS */}
+<Route
+  path="/ss-technologies-medical-coding/digital-products"
+  element={<DigitalProducts />}
+/>
+{/* CUSTOMER DETAILS */}
+<Route
+  path="/ss-technologies-medical-coding/customer-details"
+  element={<CustomerDetails />}
+/>
+{/* PAYMENT */}
+<Route
+  path="/ss-technologies-medical-coding/payment"
+  element={<Payment />}
+/>
 
         {/* ADMIN LOGIN */}
         <Route

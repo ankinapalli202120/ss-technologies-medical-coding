@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { supabase } from "../supabaseClient";
 import "../styles.css";
 import "../css/styles.css";
 
 function Courses() {
+  const navigate = useNavigate();
   const [supabaseCourses, setSupabaseCourses] = useState([]);
 
   useEffect(() => {
@@ -53,51 +55,312 @@ function Courses() {
 
         {/* Certification Courses */}
 
-        <div className="course-card">
-          <div className="course-icon">🩺</div>
-          <h2>CPC</h2>
-          <div className="course-badge">AAPC Certification</div>
-          <p><strong>Duration:</strong> 60 Days</p>
-          <p><strong>Focus:</strong> Physician / Professional Coding</p>
-          <p><strong>Subjects:</strong> ICD-10-CM • CPT • HCPCS</p>
-        </div>
+        {/* Certification Courses */}
 
-        <div className="course-card">
-          <div className="course-icon">🏥</div>
-          <h2>CCS</h2>
-          <div className="course-badge">AHIMA Certification</div>
-          <p><strong>Duration:</strong> 90 Days</p>
-          <p><strong>Focus:</strong> Inpatient Coding</p>
-          <p><strong>Subjects:</strong> ICD-10-CM • CPT • ICD-10-PCS</p>
-        </div>
+<div className="course-card">
+  <div className="course-icon">🩺</div>
+  <h2>CPC</h2>
+  <div className="course-badge">AAPC Certification</div>
 
-        <div className="course-card">
-          <div className="course-icon">📊</div>
-          <h2>CRC</h2>
-          <div className="course-badge">AAPC Certification</div>
-          <p><strong>Duration:</strong> 60 Days</p>
-          <p><strong>Focus:</strong> HCC & Risk Adjustment</p>
-          <p><strong>Subjects:</strong> ICD-10-CM • HCC • Risk Adjustment</p>
-        </div>
+  <p><strong>Duration:</strong> 60 Days</p>
+  <p><strong>Focus:</strong> Physician / Professional Coding</p>
+  <p><strong>Subjects:</strong> ICD-10-CM • CPT • HCPCS</p>
 
-        <div className="course-card">
-          <div className="course-icon">👨‍⚕️</div>
-          <h2>CCS-P</h2>
-          <div className="course-badge">AHIMA Certification</div>
-          <p><strong>Duration:</strong> 60 Days</p>
-          <p><strong>Focus:</strong> Physician / Professional Coding</p>
-          <p><strong>Subjects:</strong> ICD-10-CM • CPT</p>
-        </div>
+  <div className="course-payment-options">
+    <p><strong>Online Classes: ₹10,000</strong></p>
 
-        <div className="course-card">
-          <div className="course-icon">📋</div>
-          <h2>CDIP</h2>
-          <div className="course-badge">AHIMA Certification</div>
-          <p><strong>Duration:</strong> 60 Days</p>
-          <p><strong>Focus:</strong> Clinical Documentation Improvement</p>
-          <p><strong>Training:</strong> CDI • Documentation • Inpatient Concepts</p>
-        </div>
+    <button
+      className="payment-button"
+      type="button"
+      onClick={() =>
+        navigate("/ss-technologies-medical-coding/customer-details", {
+          state: {
+            product: {
+              name: "CPC - Online Classes",
+              price: 10000,
+            },
+          },
+        })
+      }
+    >
+      Pay Now
+    </button>
 
+    <p><strong>Office Classes: ₹15,000</strong></p>
+
+    <button
+      className="payment-button"
+      type="button"
+      onClick={() =>
+        navigate("/ss-technologies-medical-coding/customer-details", {
+          state: {
+            product: {
+              name: "CPC - Office Classes",
+              price: 15000,
+            },
+          },
+        })
+      }
+    >
+      Pay Now
+    </button>
+  </div>
+</div>
+
+
+<div className="course-card">
+  <div className="course-icon">🏥</div>
+  <h2>CCS</h2>
+  <div className="course-badge">AHIMA Certification</div>
+
+  <p><strong>Duration:</strong> 90 Days</p>
+  <p><strong>Focus:</strong> Inpatient Coding</p>
+  <p><strong>Subjects:</strong> ICD-10-CM • CPT • ICD-10-PCS</p>
+
+  <div className="course-payment-options">
+    <p><strong>Online Classes: ₹10,000</strong></p>
+
+    <button
+      className="payment-button"
+      type="button"
+      onClick={() =>
+        navigate("/ss-technologies-medical-coding/customer-details", {
+          state: {
+            product: {
+              name: "CCS - Online Classes",
+              price: 10000,
+            },
+          },
+        })
+      }
+    >
+      Pay Now
+    </button>
+
+    <p><strong>Office Classes: ₹15,000</strong></p>
+
+    <button
+      className="payment-button"
+      type="button"
+      onClick={() =>
+        navigate("/ss-technologies-medical-coding/customer-details", {
+          state: {
+            product: {
+              name: "CCS - Office Classes",
+              price: 15000,
+            },
+          },
+        })
+      }
+    >
+      Pay Now
+    </button>
+  </div>
+</div>
+
+
+<div className="course-card">
+  <div className="course-icon">📊</div>
+  <h2>CRC</h2>
+  <div className="course-badge">AAPC Certification</div>
+
+  <p><strong>Duration:</strong> 60 Days</p>
+  <p><strong>Focus:</strong> HCC & Risk Adjustment</p>
+  <p><strong>Subjects:</strong> ICD-10-CM • HCC • Risk Adjustment</p>
+
+  <div className="course-payment-options">
+    <p><strong>Online Classes: ₹10,000</strong></p>
+
+    <button
+      className="payment-button"
+      type="button"
+      onClick={() =>
+        navigate("/ss-technologies-medical-coding/customer-details", {
+          state: {
+            product: {
+              name: "CRC - Online Classes",
+              price: 10000,
+            },
+          },
+        })
+      }
+    >
+      Pay Now
+    </button>
+
+    <p><strong>Office Classes: ₹15,000</strong></p>
+
+    <button
+      className="payment-button"
+      type="button"
+      onClick={() =>
+        navigate("/ss-technologies-medical-coding/customer-details", {
+          state: {
+            product: {
+              name: "CRC - Office Classes",
+              price: 15000,
+            },
+          },
+        })
+      }
+    >
+      Pay Now
+    </button>
+  </div>
+</div>
+
+
+<div className="course-card">
+  <div className="course-icon">👨‍⚕️</div>
+  <h2>CCS-P</h2>
+  <div className="course-badge">AHIMA Certification</div>
+
+  <p><strong>Duration:</strong> 60 Days</p>
+  <p><strong>Focus:</strong> Physician / Professional Coding</p>
+  <p><strong>Subjects:</strong> ICD-10-CM • CPT</p>
+
+  <div className="course-payment-options">
+    <p><strong>Online Classes: ₹10,000</strong></p>
+
+    <button
+      className="payment-button"
+      type="button"
+      onClick={() =>
+        navigate("/ss-technologies-medical-coding/customer-details", {
+          state: {
+            product: {
+              name: "CCS-P - Online Classes",
+              price: 10000,
+            },
+          },
+        })
+      }
+    >
+      Pay Now
+    </button>
+
+    <p><strong>Office Classes: ₹15,000</strong></p>
+
+    <button
+      className="payment-button"
+      type="button"
+      onClick={() =>
+        navigate("/ss-technologies-medical-coding/customer-details", {
+          state: {
+            product: {
+              name: "CCS-P - Office Classes",
+              price: 15000,
+            },
+          },
+        })
+      }
+    >
+      Pay Now
+    </button>
+  </div>
+</div>
+
+
+<div className="course-card">
+  <div className="course-icon">📋</div>
+  <h2>CDIP</h2>
+  <div className="course-badge">AHIMA Certification</div>
+
+  <p><strong>Duration:</strong> 60 Days</p>
+  <p><strong>Focus:</strong> Clinical Documentation Improvement</p>
+  <p>
+    <strong>Training:</strong> CDI • Documentation • Inpatient Concepts
+  </p>
+
+  <div className="course-payment-options">
+    <p><strong>Online Classes: ₹20,000</strong></p>
+    <p>🌍 Pan India & International Students</p>
+
+    <button
+      className="payment-button"
+      type="button"
+      onClick={() =>
+        navigate("/ss-technologies-medical-coding/customer-details", {
+          state: {
+            product: {
+              name: "CDIP - Online Classes",
+              price: 20000,
+            },
+          },
+        })
+      }
+    >
+      Pay Now
+    </button>
+  </div>
+</div>
+{/* Digital Skills - Excel */}
+<div className="course-card">
+  <div className="course-icon">📊</div>
+  <h2>Excel Training</h2>
+
+  <div className="course-badge">Digital Skills Training</div>
+
+  <p><strong>Focus:</strong> Microsoft Excel Practical Training</p>
+  <p>Excel Basics • Formulas • Functions</p>
+  <p>Data Management • Tables • Reports</p>
+  <p>Practical Office & Business Applications</p>
+
+  <p className="course-price">
+    <strong>₹999</strong>
+  </p>
+
+  <button
+    className="join-btn"
+    onClick={() =>
+      navigate("/ss-technologies-medical-coding/customer-details", {
+        state: {
+          product: {
+            name: "Excel Training",
+            price: 999,
+            category: "Digital Skills Training",
+          },
+        },
+      })
+    }
+  >
+    Buy Now
+  </button>
+</div>
+
+{/* Digital Skills - Website Design */}
+<div className="course-card">
+  <div className="course-icon">🌐</div>
+  <h2>Website Design</h2>
+
+  <div className="course-badge">Digital Skills Training</div>
+
+  <p><strong>Focus:</strong> Website Design & Development Basics</p>
+  <p>HTML • CSS • Website Structure</p>
+  <p>Responsive Design • Basic Web Development</p>
+  <p>Practical Website Creation</p>
+
+  <p className="course-price">
+    <strong>₹1,999</strong>
+  </p>
+
+  <button
+    className="join-btn"
+    onClick={() =>
+      navigate("/ss-technologies-medical-coding/customer-details", {
+        state: {
+          product: {
+            name: "Website Design",
+            price: 1999,
+            category: "Digital Skills Training",
+          },
+        },
+      })
+    }
+  >
+    Buy Now
+  </button>
+</div>
         {/* Medical Coding */}
 
         <div className="course-card">
@@ -108,6 +371,7 @@ function Courses() {
           <p>ICD-10-CM • CPT • HCPCS • ICD-10-PCS</p>
           <p>Medical Terminology • Anatomy & Physiology</p>
         </div>
+                
 
         {/* Medical Billing */}
 

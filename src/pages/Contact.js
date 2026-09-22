@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { supabase } from "../supabaseClient";
-import "../styles.css";
+import "../css/styles.css";
 
 function Contact() {
   const [submitting, setSubmitting] = useState(false);
