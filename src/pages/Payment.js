@@ -153,12 +153,17 @@ const [savingPayment, setSavingPayment] = useState(false);
       alert("Payment details could not be saved. Please try again.");
       return;
     }
+alert(
+  product?.name?.toLowerCase().includes("recorded")
+    ? "Payment details submitted successfully. SARAVU will verify your payment and confirm your recorded classes access."
+    : product?.name?.toLowerCase().includes("class")
+    ? "Payment details submitted successfully. SARAVU will verify your payment and confirm your enrollment."
+    : "Payment details submitted successfully. SARAVU will verify your payment and confirm your digital product."
+);
 
-    alert(
-      "Payment details submitted successfully. SARAVU will verify your payment and confirm your digital product."
-    );
-
-    setTransactionId("");
+setTransactionId("");
+    
+    
   } catch (error) {
     console.error("Unexpected error:", error);
     alert("Something went wrong. Please try again.");
@@ -171,10 +176,13 @@ const [savingPayment, setSavingPayment] = useState(false);
 </button>
 
         </div>
-
-        <p className="payment-note">
-          Your digital product will be provided after payment confirmation.
-        </p>
+       <p className="payment-note">
+  {product?.name?.toLowerCase().includes("recorded")
+    ? "Your recorded classes access will be provided after payment confirmation."
+    : product?.name?.toLowerCase().includes("class")
+    ? "Your enrollment will be confirmed after payment confirmation."
+    : "Your digital product will be provided after payment confirmation."}
+</p>
 
       </div>
 
